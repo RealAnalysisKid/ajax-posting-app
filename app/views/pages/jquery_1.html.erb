@@ -1,4 +1,15 @@
 <div class="container">
+
+  <script>
+    //原来 JavaScript的注解也是这个双斜杠啊
+    //也可以缩写成 $(function()){
+    $(document).ready(function(){
+      $("#my-click").click(function(){
+        $("#foo").html('<h1>zoo</h1>')
+      })
+    })
+  </script>
+
   <p>
    <a id="my-click">Click Me</a>
   </p>
@@ -7,14 +18,6 @@
     <p>bar</p>
   </div>
 
-  <script>
-    console.log("checkpoint A");
-    $("#my-click").click(function(){
-      console.log("checkpoint C");
-    })
-
-    console.log("checkpoint B");
-  </script>
 </div>
 
 
