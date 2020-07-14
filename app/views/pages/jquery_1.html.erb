@@ -7,7 +7,12 @@
 </div>
 
 <script>
+  console.log("checkpoint A");
   $("#my-click").click(function(){
-    $("#foo").html('<h1>zoo</h1>');
+    console.log("checkpoint C");
   })
+
+  console.log("checkpoint B");
 </script>
+
+<%# 可以把 html 替换成 text prepend append before after这些词 各有不同效果哦 %>
