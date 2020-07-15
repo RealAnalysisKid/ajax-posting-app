@@ -1,0 +1,21 @@
+<div class="container">
+  <p>
+   <a id="my-click">Click Me</a>
+  </p>
+
+  <div id="foo" style="border: 1px solid red;">
+    <p>bar</p>
+  </div>
+
+  <script>
+    console.log("checkpoint A");
+    $("#my-click").click(function(){
+      console.log("checkpoint C");
+    })
+
+    console.log("checkpoint B");
+  </script>
+</div>
+
+
+<%# 可以把 html 替换成 text prepend append before after这些词 各有不同效果哦 %>
