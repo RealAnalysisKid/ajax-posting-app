@@ -4,6 +4,7 @@
   </div>
   <div class="panel-body">
     <span id="post-thumbsup-<%= post.id %>" class="label label-success"><%= post.likes.count %> 👍</span>
+    <span id="post-heart-<%= post.id %>" class="label label-success"><%= post.favorites.count %> ❤ </span>
     <%= post.content %>
 
     <div class="text-right">

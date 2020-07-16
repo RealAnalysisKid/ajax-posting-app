@@ -1,2 +1,4 @@
 str = "<%=j render :partial => "favorite", :locals => { :post => @post } %>";
 $("#post-favorite-<%= @post.id %>").html(str);
+
+$("#post-heart-<%= @post.id %>").html("<%= @post.favorites.count%>" + "❤");
