@@ -36,8 +36,26 @@ class PostsController < ApplicationController
     like = @post.find_like(current_user)
     like.destroy
 
-    #redirect_to posts_path
+    # redirect_to posts_path
     render "like"
+  end
+
+  def favorite
+    @post = Post.find(params[:id])
+    unless @post.find_favorite(current_user)
+      Favorite.create( :user => current_user, :post => @post )
+    end
+
+    # redirect_to posts_path
+  end
+
+  def defavorite
+    @post = Post.find(params[:id])
+    favorite = @post.find_favorite(current_user)
+    favorite.destroy
+
+    # redirect_to posts_path
+    render "favorite"
   end
 
   protected

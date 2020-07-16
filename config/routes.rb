@@ -11,7 +11,13 @@ Rails.application.routes.draw do
     member do
       post "like" => "posts#like"
       post "unlike" => "posts#unlike"
+      post "favorite" => "posts#favorite"
+      post "defavorite" => "posts#defavorite"
     end
+  end
+
+  namespace :favorite do
+    resources :posts
   end
 
   root "posts#index"
