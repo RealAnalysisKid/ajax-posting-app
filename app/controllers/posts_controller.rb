@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.save
 
-    redirect_to posts_path
+    # redirect_to posts_path  因为这样是跳转的新页面 要玩 Ajax 肯定也要砍掉你啦
   end
 
   def destroy
