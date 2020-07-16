@@ -1,0 +1,14 @@
+<div id="post-<%= post.id %>" class="panel panel-default">  <%# 因为不是换全网页 不是跳新页面 所以要“指哪打哪”就必须给“被打”的“精准定位”  %>
+  <div class="panel-heading">
+    <%= post.user.display_name %>
+  </div>
+  <div class="panel-body">
+    <%= post.content %>
+
+    <% if current_user && post.user == current_user%>
+      <p class="text-right">
+        <%= link_to "Delete", post_path(post), :method => :delete, :remote => true, :class => "btn btn-danger" %>
+      </p>
+    <% end %>
+  </div>
+</div>
