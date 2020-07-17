@@ -4,3 +4,18 @@ $("#post_content").val("");
 <% else %>
   alert("发文失败");
 <% end %>
+
+
+$(".delete-post").click(function(evt){
+    evt.preventDefault();
+    var url = $(this).attr("href");
+
+    $.ajax({
+      url: url,
+      method: 'DELETE',
+      dataType: 'json',
+      success: function(data){
+        $("#post-" + data["id"]).remove();
+      }
+    })
+  })
