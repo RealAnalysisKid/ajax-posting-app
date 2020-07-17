@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 
     # redirect_to posts_path  这行会跳转页面 我们需要停留在同一页面
     # render :js => "alert('ok');" 这招叫remote JavaScript 把远端的JS代码抓过来执行 但是在controller里写JS太变态了...
+    render :json => { :id => @post.id }
   end
 
   def like
