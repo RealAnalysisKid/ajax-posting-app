@@ -76,6 +76,7 @@
 
   $("#post-list").on('change', ".select_category", function(){
     var url = $(this).data("url");
+    var that = this;
 
     $.ajax({
       url: url,
@@ -85,6 +86,12 @@
         post: {
           category_id: $(this).val()
         }
+      },
+      beforeSend: function(){
+        $(that).after( $(' <img src="/images/ajax-loader.gif" id="ajax-loading"> ') );
+      },
+      complete: function(){
+        $("#ajax-loading").remove();
       }
     });
   });
