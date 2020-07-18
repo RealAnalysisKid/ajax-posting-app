@@ -1,0 +1,37 @@
+<div id="post-<%= post.id %>" class="panel panel-default">  <%# 因为不是换全网页 不是跳新页面 所以要“指哪打哪”就必须给“被打”的“精准定位”  %>
+  <div class="panel-heading">
+    <%= post.user.display_name %>
+  </div>
+  <div class="panel-body">
+    <span id="post-thumbsup-<%= post.id %>" class="label label-success"><%= post.likes.count %> 👍</span>
+    <span id="post-heart-<%= post.id %>" class="label label-success"><%= post.favorites.count %> ❤ </span>
+    <%= post.content %>
+
+    <div class="text-right">
+
+      <span id="post-like-<%= post.id %>">
+        <%= render :partial => "like", :locals => { :post => post } %>
+      </span>
+
+      <% if current_user && post.user == current_user%>
+          <%= link_to "Delete", post_path(post), :class => "delete-post btn btn-danger" %>
+
+          <span id="post-favorite-<%= post.id %>">
+            <%= render :partial => "favorite", :locals => { :post => post }%>
+          </span>
+      <% end %>
+
+    </div>
+
+  </div>
+
+  <div class="panel-footer">
+    <% if current_user && current_user.is_admin? %>
+      <label>
+        <%= check_box_tag "mark_flag[#{post.id}]", 1, post.flag_at.present?,
+               :data => { :url => toggle_flag_post_path(post) }, :class => "toggle_flag" %> 标记为垃圾
+            <span id="post-flag-<%= post.id %>"><%= post.flag_at %></span>
+      </label>
+    <% end %>
+  </div>
+</div>
