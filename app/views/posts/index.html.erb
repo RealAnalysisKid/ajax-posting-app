@@ -27,6 +27,7 @@
     // 超连结 a 的默认行为是跳到下一页，如果没有这行的话，送出 ajax 后会跳去 show page
     var url = $(this).attr("href");
     // this 是个特别的变量，代表触发事件的元素。使用 attr 可以读取元素的属性，这里要拿到超连结的网址
+    var that = this;
 
     $.ajax({
       url: url,
@@ -34,7 +35,7 @@
       // dataType: 'script'  // 要求服务器回传 javascript
       dataType: 'json',  // 要求服务器回传 json
       success: function(data){     // data 就是服务器回传的 JSON 资料
-        $('#post-' + data["id"]).remove();
+        $(that).closest(".panel").remove();  //这样写就不用 id 进行定位了
       }
     })
   })
@@ -57,6 +58,7 @@
 
   $("#post-list").on('change', ".toggle-flag", function(){
     var url = $(this).data("url");
+    var that = this;
 
     $.ajax({
       url: url,
@@ -64,9 +66,9 @@
       dataType: "json",
       success: function(data){
         if ( data["flag_at"] ) {
-          $("#post-flag-" + data["id"]).html(data["flag_at"]);
+          $(that).closest("label").find("span").html(data["flag_at"]);
         } else {
-          $("#post-flag-" + data["id"]).html("");
+          $(that).closest("label").find("span").html("");
         }
       }
     })
