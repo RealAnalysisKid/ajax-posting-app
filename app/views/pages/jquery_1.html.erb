@@ -1,0 +1,24 @@
+<div class="container">
+
+  <script>
+    //原来 JavaScript的注解也是这个双斜杠啊
+    //也可以缩写成 $(function()){
+    $(document).ready(function(){
+      $("#my-click").click(function(){
+        $("#foo").html('<h1>zoo</h1>')
+      })
+    })
+  </script>
+
+  <p>
+   <a id="my-click">Click Me</a>
+  </p>
+
+  <div id="foo" style="border: 1px solid red;">
+    <p>bar</p>
+  </div>
+
+</div>
+
+
+<%# 可以把 html 替换成 text prepend append before after这些词 各有不同效果哦 %>
