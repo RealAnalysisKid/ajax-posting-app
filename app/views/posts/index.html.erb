@@ -20,7 +20,7 @@
 </div>
 
 <script>
-  $(".delete-post").click(function(evt){
+  $("#post-list").on('click',".delete-post", function(evt){
     // 这会绑 click 事件到所有有 `.delete-post` class 的元素上，也就是所有的删除按钮
     evt.preventDefault();
     // `evt` 是浏览器的事件物件，evt.preventDefault(); 会终止这个元素的默认行为：
@@ -55,7 +55,7 @@
     }
   })
 
-  $(".toggle_flag").on('change', function(){
+  $("#post-list").on('change', ".toggle-flag", function(){
     var url = $(this).data("url");
 
     $.ajax({
