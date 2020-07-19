@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       post "favorite" => "posts#favorite"
       post "defavorite" => "posts#defavorite"
       post "toggle_flag" => "posts#toggle_flag"
+      post "rate" => "posts#rate"
     end
   end
 
