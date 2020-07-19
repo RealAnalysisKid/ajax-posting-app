@@ -1,0 +1,2 @@
+module Favorite::PostsHelper
+end
