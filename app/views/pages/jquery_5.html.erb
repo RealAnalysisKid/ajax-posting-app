@@ -19,6 +19,7 @@
     <h1>bar</h1>
   </div>
 
+ <%= content_for :handwrite_javascript do%>
   <script>
     $("#my-add-class-click").click(function(){
       $("#foo").removeClass('error');
@@ -30,6 +31,7 @@
       $("#foo").addClass('error');
     })
   </script>
+ <% end %>
 
 </div>
 

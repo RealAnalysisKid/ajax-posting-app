@@ -8,6 +8,7 @@
     <p>bar</p>
   </div>
 
+<%= content_for :handwrite_javascript do %>
   <script>
     $("#foo").hide();
 
@@ -19,4 +20,5 @@
       $("#foo").slideUp();
     })
   </script>
+ <% end %>
 </div>

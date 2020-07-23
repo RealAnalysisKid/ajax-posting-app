@@ -7,6 +7,7 @@
     <p>bar</p>
   </div>
 
+ <%= content_for :handwrite_javascript do %>
   <script>
     $("#foo").hide();
 
@@ -14,4 +15,5 @@
       $("#foo").fadeToggle();
     })
   </script>
+ <% end %>
 </div>

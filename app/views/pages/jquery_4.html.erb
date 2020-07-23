@@ -13,6 +13,7 @@
   <div class="zoo"><p>b</p></div>
   <div class="zoo"><p>c</p></div>
 
+ <%= content_for :handwrite_javascript do %>
   <script>
     $("#my-replace-click").click(function(){
       $("#foo").replaceWith('<div id="foo" style="border:1px solid green"><p>foo</p></div>');
@@ -26,6 +27,7 @@
       $(".zoo").remove();
     })
   </script>
+ <% end %>
 </div>
 
 
