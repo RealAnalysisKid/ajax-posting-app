@@ -1,0 +1,19 @@
+<div class="container">
+  <p>
+    <a id="my-toggle-click">Toggle</a>
+  </p>
+
+  <div id="foo" style="border: 1px solid red;">
+    <p>bar</p>
+  </div>
+
+ <%= content_for :handwrite_javascript do %>
+  <script>
+    $("#foo").hide();
+
+    $("#my-toggle-click").hover(function(){
+      $("#foo").fadeToggle();
+    })
+  </script>
+ <% end %>
+</div>
