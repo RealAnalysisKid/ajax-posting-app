@@ -19,6 +19,7 @@
 
 </div>
 
+<%= content_for :handwrite_javascript do %>
 <script>
   $("#post-list").on('click',".delete-post", function(evt){
     // 这会绑 click 事件到所有有 `.delete-post` class 的元素上，也就是所有的删除按钮
@@ -113,3 +114,4 @@
     }
   });
 </script>
+<% end %>
