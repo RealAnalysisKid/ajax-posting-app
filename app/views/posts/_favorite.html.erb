@@ -1,0 +1,5 @@
+<% if current_user && post.find_favorite(current_user) %>
+  <%= link_to "♡", defavorite_post_path(post), :method => :post, :remote => true,:class => "btn btn-default" %>
+<% else %>
+  <%= link_to "❤", favorite_post_path(post), :method => :post, :remote => true,:class => "btn btn-default" %>
+<% end %>
