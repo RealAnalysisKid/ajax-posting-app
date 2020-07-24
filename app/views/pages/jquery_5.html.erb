@@ -1,0 +1,39 @@
+<div class="container">
+
+  <style>
+    .error {
+      color: red;
+    }
+    .success {
+      color: green;
+    }
+  </style>
+
+  <p>
+    <a id="my-add-class-click">Add Class</a>
+
+    <a id="my-remove-class-click">Remove Class</a>
+  </p>
+
+  <div id="foo">
+    <h1>bar</h1>
+  </div>
+
+ <%= content_for :handwrite_javascript do%>
+  <script>
+    $("#my-add-class-click").click(function(){
+      $("#foo").removeClass('error');
+      $("#foo").addClass('success');
+    })
+
+    $("#my-remove-class-click").click(function(){
+      $("#foo").removeClass('success');
+      $("#foo").addClass('error');
+    })
+  </script>
+ <% end %>
+
+</div>
+
+<!-- 此处会同时又removeClass以及addClass成双成对的出现 是因为你也不知道用户一上来先点击哪个啊 代码要写成不管点击哪个都能正确执行CSS的变色任务 -->
+<%# 所以要预防性的“先移除之前可能会出现的green或者red的颜色属性 再执行自己的颜色” 这样不管之前是否已上色 都能正确执行？！ %>
